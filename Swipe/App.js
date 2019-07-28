@@ -51,6 +51,11 @@ export default function App() {
     return (
       <Card title={item.text} image={{ uri: item.uri }}>
         <Text style={{ marginBottom: 10 }}>Customized text</Text>
+        <Button
+          icon={{ name: "code" }}
+          backgroundColor="#03A9F4"
+          title="View Now!"
+        />
       </Card>
     );
   };

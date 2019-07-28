@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-const Deck = () => {
+const Deck = ({ renderCard, data }) => {
   return (
     <View>
-      <Text>Deck!</Text>
+      {data.map((item, index) => (
+        <View key={`${data.id}_${index}`}>{renderCard(item)}</View>
+      ))}
     </View>
   );
 };
