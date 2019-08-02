@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, PanResponder } from "react-native";
 import { Card, Button } from "react-native-elements";
 import Deck from "./components/Deck";
 
@@ -47,16 +47,31 @@ const DATA = [
 ];
 
 export default function App() {
-  renderCard = item => {
+  const [panResponder, setPanResponder] = useState(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: (event, gesture) => {
+        console.log("gesture", gesture);
+      }
+    })
+  );
+
+  renderCard = (item, index) => {
     return (
-      <Card title={item.text} image={{ uri: item.uri }}>
-        <Text style={{ marginBottom: 10 }}>Customized text</Text>
-        <Button
-          icon={{ name: "code" }}
-          backgroundColor="#03A9F4"
-          title="View Now!"
-        />
-      </Card>
+      <View {...panResponder.panHandlers}>
+        <Card
+          title={item.text}
+          image={{ uri: item.uri }}
+          key={`${item.id}_${index}`}
+        >
+          <Text style={{ marginBottom: 10 }}>Customized text</Text>
+          <Button
+            icon={{ name: "code" }}
+            backgroundColor="#03A9F4"
+            title="View Now!"
+          />
+        </Card>
+      </View>
     );
   };
 
