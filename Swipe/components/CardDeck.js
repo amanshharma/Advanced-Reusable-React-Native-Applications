@@ -12,7 +12,13 @@ const APP_SCREEN_WIDTH = Dimensions.get("window").width;
 const CARD_SWIPE_THRESHOLD = 0.25 * APP_SCREEN_WIDTH;
 const CARD_SWIPE_OUT_DURATION = 250;
 
-const CardDeck = ({ data, renderCard, renderNoMoreCards }) => {
+const CardDeck = ({
+  data,
+  renderCard,
+  renderNoMoreCards,
+  onSwipeLeft = () => {},
+  onSwipeRight = () => {}
+}) => {
   //set states
   const [panResponder, setPanResponder] = useState(
     PanResponder.create({
@@ -22,9 +28,9 @@ const CardDeck = ({ data, renderCard, renderNoMoreCards }) => {
       },
       onPanResponderRelease: (event, gesture) => {
         if (gesture.dx > CARD_SWIPE_THRESHOLD) {
-          this.forceSwipe("right");
+          forceSwipe("right");
         } else if (gesture.dx < -CARD_SWIPE_THRESHOLD) {
-          this.forceSwipe("left");
+          forceSwipe("left");
         } else {
           this.resetPosition();
         }
