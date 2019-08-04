@@ -64,8 +64,8 @@ export default (App = () => {
 
   const renderNoMoreCards = () => {
     return (
-      <Card title="All Done!">
-        <Text style={{ marginBottom: 10 }}>There's no more content here!</Text>
+      <Card title="Done!">
+        <Text style={{ marginBottom: 10 }}>No content left!!</Text>
         <Button backgroundColor="#03A9F4" title="Get more!" />
       </Card>
     );
