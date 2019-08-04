@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, PanResponder, Animated } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { Card, Button } from "react-native-elements";
-import Deck from "./components/Deck";
+import CardDeck from "./components/CardDeck";
 
 const DATA = [
   {
@@ -46,78 +46,46 @@ const DATA = [
   }
 ];
 
-export default function App() {
-  const position = new Animated.ValueXY();
-  //Animated.spring(position, { toValue: { x: 200, y: 200 } }).start();
-
-  const [panResponder, setPanResponder] = useState(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (event, gesture) => {
-        console.log("gesture", gesture);
-        position.setValue({ x: gesture.dx, y: gesture.dy });
-      }
-    })
-  );
-
-  const getStyle = () => {
-    const rotate = position.x.interpolate({
-      inputRange: [-500, 0, 500],
-      outputRange: ["-120deg", "0deg", "120deg"]
-    });
-    return { ...position.getLayout(), transform: [{ rotate }] };
+export default (App = () => {
+  const renderCard = item => {
+    return (
+      <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
+        <Text style={{ marginBottom: 10 }}>
+          I can customize the Card further.
+        </Text>
+        <Button
+          icon={{ name: "code" }}
+          backgroundColor="#03A9F4"
+          title="View Now!"
+        />
+      </Card>
+    );
   };
 
-  renderCard = (item, index) => {
-    if (index === 0) {
-      return (
-        <Animated.View {...panResponder.panHandlers} style={getStyle()}>
-          <Card
-            title={item.text}
-            image={{ uri: item.uri }}
-            key={`${item.id}_${index}`}
-          >
-            <Text style={{ marginBottom: 10 }}>Customized text</Text>
-            <Button
-              icon={{ name: "code" }}
-              backgroundColor="#03A9F4"
-              title="View Now!"
-            />
-          </Card>
-        </Animated.View>
-      );
-    } else {
-      return (
-        <View>
-          <Card
-            title={item.text}
-            image={{ uri: item.uri }}
-            key={`${item.id}_${index}`}
-          >
-            <Text style={{ marginBottom: 10 }}>Customized text</Text>
-            <Button
-              icon={{ name: "code" }}
-              backgroundColor="#03A9F4"
-              title="View Now!"
-            />
-          </Card>
-        </View>
-      );
-    }
+  const renderNoMoreCards = () => {
+    return (
+      <Card title="All Done!">
+        <Text style={{ marginBottom: 10 }}>There's no more content here!</Text>
+        <Button backgroundColor="#03A9F4" title="Get more!" />
+      </Card>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <Deck data={DATA} renderCard={renderCard} />
+      <CardDeck
+        data={DATA}
+        renderCard={renderCard}
+        renderNoMoreCards={renderNoMoreCards}
+      />
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    //backgroundColor: "#fff",
-    //alignItems: "center",
-    //justifyContent: "center"
+    marginTop: 20,
+    flex: 1,
+    backgroundColor: "#fff"
   }
 });
