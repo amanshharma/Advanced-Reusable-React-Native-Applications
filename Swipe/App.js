@@ -48,6 +48,7 @@ const DATA = [
 
 export default (App = () => {
   const renderCard = item => {
+    console.log("item.id: ", item.id);
     return (
       <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
         <Text style={{ marginBottom: 10 }}>
