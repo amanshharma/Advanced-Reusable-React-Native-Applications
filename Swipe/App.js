@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Card, Button } from "react-native-elements";
+import { Card, Button, Header } from "react-native-elements";
 import CardDeck from "./components/CardDeck";
 
 const DATA = [
@@ -50,13 +50,11 @@ export default (App = () => {
   const renderCard = item => {
     return (
       <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
-        <Text style={{ marginBottom: 10 }}>
-          I can customize the Card further.
-        </Text>
+        <Text style={{ marginBottom: 10 }}>Customizable card!!</Text>
         <Button
           icon={{ name: "code" }}
           backgroundColor="#03A9F4"
-          title="View Now!"
+          title="Tap here!!"
         />
       </Card>
     );
@@ -73,6 +71,10 @@ export default (App = () => {
 
   return (
     <View style={styles.container}>
+      <Header
+        centerComponent={{ text: "Swipe Deck", style: { color: "#fff" } }}
+      />
+
       <CardDeck
         data={DATA}
         renderCard={renderCard}
