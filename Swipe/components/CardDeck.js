@@ -41,11 +41,11 @@ const CardDeck = ({
   const [position, setPosition] = useState(new Animated.ValueXY());
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    UIManager.setLayoutAnimationEnabledExperimental &&
-      UIManager.setLayoutAnimationEnabledExperimental(true);
-    LayoutAnimation.spring();
-  });
+  // useEffect(() => {
+  //   UIManager.setLayoutAnimationEnabledExperimental &&
+  //     UIManager.setLayoutAnimationEnabledExperimental(true);
+  //   LayoutAnimation.spring();
+  // });
 
   const forceSwipe = direction => {
     console.log("forceSwipe()");
@@ -57,12 +57,15 @@ const CardDeck = ({
   };
 
   const onSwipeComplete = direction => {
+    console.log("onSwipeComplete - index value -start", index);
+
     const item = data[index];
 
-    direction === "right" ? onSwipeRight(item) : onSwipeLeft(item);
+    //direction === "right" ? onSwipeRight(item) : onSwipeLeft(item);
+    setIndex(prevIndex => prevIndex + 1);
     position.setValue({ x: 0, y: 0 });
-    setIndex(index + 1);
-    console.log("index value", index);
+
+    console.log("onSwipeComplete - index value -end", index);
   };
 
   const resetPosition = () => {
