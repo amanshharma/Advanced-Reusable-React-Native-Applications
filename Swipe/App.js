@@ -72,7 +72,10 @@ export default (App = () => {
   return (
     <View style={styles.container}>
       <Header
-        centerComponent={{ text: "Swipe Deck", style: { color: "#fff" } }}
+        centerComponent={{
+          text: "Swipe Deck App",
+          style: { color: "#fff", fontSize: 25, fontWeight: "bold" }
+        }}
       />
 
       <CardDeck
