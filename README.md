@@ -1,5 +1,5 @@
 # :heavy_check_mark: Advanced-Reusable-React-Native-Applications
-Applications built for practice by using advanced and latest concepts in React Native
+Applications built by using advanced and latest concepts in React Native. (More coming soon... :100:)
 
 ## :star: TINDER LIKE SWIPE DECK APP
 
