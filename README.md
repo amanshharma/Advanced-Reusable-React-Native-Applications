@@ -15,6 +15,8 @@ yarn start
 
 <img src="https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif" width="350" height="600" />
 
+
+
 ## :star: TINDER LIKE SWIPE DECK APP
 
 Swipe App is built using React Hooks, Animated and Animation layout concepts in React Native.
