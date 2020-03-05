@@ -13,8 +13,7 @@ yarn start
 
 #### Demo:
 
-<img src="https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif" width="285" height="500" />
-![dashboard](https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif)
+<img src="https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif" width="350" height="600" />
 
 ## :star: TINDER LIKE SWIPE DECK APP
 
@@ -28,5 +27,4 @@ expo start
 
 #### Demo:
 
-
-![swipe-app-demo](https://user-images.githubusercontent.com/29627276/62504585-3bbb0d00-b7c7-11e9-96b3-058eb6950edf.gif)
+<img src="https://user-images.githubusercontent.com/29627276/62504585-3bbb0d00-b7c7-11e9-96b3-058eb6950edf.gif" width="350" height="600" />
