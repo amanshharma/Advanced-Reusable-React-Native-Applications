@@ -13,6 +13,7 @@ yarn start
 
 #### Demo:
 
+<img src="https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif" width="285" height="500" />
 ![dashboard](https://user-images.githubusercontent.com/29627276/75948130-9a855980-5e70-11ea-95cd-5385bc1191eb.gif)
 
 ## :star: TINDER LIKE SWIPE DECK APP
